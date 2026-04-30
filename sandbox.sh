@@ -22,9 +22,9 @@ for app in "${requirements[@]}"; do
         exit
     fi
 done
-if [[ -e $1 && -x $1 && -n $1 ]]; then
+if [[ -e "$1" && -x "$1" && -n "$1" ]]; then
     
-    yara -w -s "$absolute_path/malware_rules/main.yar" $1 
+    yara -w -s "$absolute_path/malware_rules/main.yar" "$1" 
     
     if [[ $? != 0 ]]; then
         echo "Static analysis failed (Try providing full path to executable file)"
