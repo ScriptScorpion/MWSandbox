@@ -85,7 +85,7 @@ if [[ -e "$1" && -x "$1" && -n "$1" ]]; then
         git config --global --unset-all --fixed-value safe.directory "$absolute_path/coreutils"
     fi
     cd "$absolute_path" || exit
-    chroot "$absolute_path/root" /bin/bash -c "strace -f '/tmp/$argument_filename'" &>/tmp/strace.log
+    chroot "$absolute_path/root" /bin/bash -c "strace -f ""/tmp/$argument_filename""" &>/tmp/strace.log
     if [[ ${#cleanup[@]} != 0 ]]; then
         for (( i=0; i<${#cleanup[@]}; i++ )); do
             ${cleanup[i]}
